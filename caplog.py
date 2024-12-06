@@ -123,7 +123,7 @@ if __name__ == '__main__':
     """
     if len(sys.argv) != 2: 
         print("Invalid arguments. Please specify the path to the log file") 
-        exit()
+        sys.exit()
     LOG_FILE=sys.argv[1]
 
     #create file if it does not exist
@@ -157,7 +157,7 @@ if __name__ == '__main__':
     except Exception as e:
         print(str(e))
         print("Log entry failed")
-        exit(1)
+        sys.exit(1)
     print('Log entry successful')
     
 

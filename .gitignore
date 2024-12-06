@@ -4,4 +4,4 @@ build/
 main.spec
 .ipynb_checkpoints/
 .vscode/
-
+caplog.spec
