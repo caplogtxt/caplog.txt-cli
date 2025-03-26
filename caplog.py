@@ -3,9 +3,13 @@ import os
 import sys
 import datetime
 from dateutil import parser
+import yaml
 
-DATE_FORMAT="%Y-%m-%d"
-TIMESTAMP_FORMAT="%Y-%m-%dT%H:%M:%S"
+with open("config.yml", "r") as ymlfile:
+    cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
+
+DATE_FORMAT=cfg['datetime']['date_format']
+TIMESTAMP_FORMAT=cfg['datetime']['timestamp_format']
 
 def validate_log(log):
     """
