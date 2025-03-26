@@ -5,8 +5,13 @@ import datetime
 from dateutil import parser
 import yaml
 
-with open("config.yml", "r") as ymlfile:
-    cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
+try:
+    with open("config.yml", "r") as ymlfile:
+        cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
+except Exception as e:
+    print("Config file not found or improper. Hit error "+str(e))
+    sys.exit(1)
+
 
 DATE_FORMAT=cfg['datetime']['date_format']
 TIMESTAMP_FORMAT=cfg['datetime']['timestamp_format']
