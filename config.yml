@@ -1,0 +1,3 @@
+datetime:
+   date_format: "%Y-%m-%d"
+   timestamp_format: "%Y-%m-%dT%H:%M:%S"
