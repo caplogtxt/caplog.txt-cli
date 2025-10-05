@@ -9,7 +9,7 @@ Caplog.txt-cli is a simple python-based command line tool to manage your caplog.
 Pass the path of the log file as the argument in the command line.
 
 ```python
-python main.py /home/user/caplog.txt
+python3 caplog.py /home/user/caplog.txt
 ```
 
 A new file file is created if it does not exist. If the given file already exists, the file is validated and parsed into a dict object. A new entry is received from the user interactively in the command line and is written into the log file. 
