@@ -98,7 +98,7 @@ def add_entry(date,timestamp,message,log_dict):
     validates and add an entry to a log_dict object
     """
     try:
-        date_obj=datetime.datetime.strptime(date.strip(),DATE_FORMAT)
+        date_obj=datetime.datetime.strptime(date.strip(),DATETIME_FORMAT)
         timestamp_obj=datetime.datetime.strptime(timestamp.strip(),TIMESTAMP_FORMAT)
         log_dict.setdefault(date,['',''])
         if log_dict[date][0] != '': #indicates an entry without an existing date
@@ -144,15 +144,15 @@ if __name__ == '__main__':
     if not validate_log(LOG_FILE):
         exit(1)
     try:
-        today_date=datetime.datetime.now().strftime(DATE_FORMAT)
+        today_date=datetime.datetime.now().strftime(DATETIME_FORMAT)
         entry_date=input(f"Enter the entry date ({today_date}) :")
         if entry_date == '':
             entry_date = today_date
         else:
-            entry_date=parser.parse(entry_date).strftime(DATE_FORMAT)
+            entry_date=parser.parse(entry_date).strftime(DATETIME_FORMAT)
         entry_timestamp=datetime.datetime.now().strftime(TIMESTAMP_FORMAT)
         entry_message=[]
-        print("Enter your text (press Enter on an empty line to finish)")
+        print("Enter your Message (press Enter on an empty line to finish)")
         while True:
             line=input()
             if line=='':
