@@ -4,7 +4,7 @@ Caplog.txt-cli is a simple python-based command line tool to manage your caplog.
 
 # Requirement 
 
-Requires Python3 and libraries - os, sys, yaml, dateutil, datetime
+Requires Python3 and libraries - os, sys, pyyaml, python-dateutil, datetime
 
 # Config
 

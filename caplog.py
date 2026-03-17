@@ -7,6 +7,7 @@ import yaml
 
 DATE_FORMAT = "%Y-%m-%d"
 TIMESTAMP_FORMAT = "%Y-%m-%dT%H:%M:%S"
+SORT_ORDER='ASCENDING'
 
 ## Load the system wide configuration 
 try:
@@ -16,6 +17,8 @@ try:
             DATE_FORMAT = cfg['DATE_FORMAT']
         if 'TIMESTAMP_FORMAT' in cfg:
             TIMESTAMP_FORMAT=cfg['TIMESTAMP_FORMAT']
+        if 'SORT_ORDER' in cfg:
+            SORT_ORDER=cfg['SORT_ORDER']
 except Exception as e:
         pass
 
@@ -29,6 +32,8 @@ try:
             DATE_FORMAT = cfg['DATE_FORMAT']
         if 'IMESTAMP_FORMAT' in cfg:
             TIMESTAMP_FORMAT=cfg['TIMESTAMP_FORMAT']
+        if 'SORT_ORDER' in cfg:
+            SORT_ORDER=cfg['SORT_ORDER']
 except Exception as e:
     pass
 
@@ -135,7 +140,8 @@ def write_log(log_dict,log):
     """
     Write the log dictionary into a caplog.txt log file 
     """
-    log_dict = dict(sorted(log_dict.items()))
+    sort_order= False if SORT_ORDER=='ASCENDING' else  True
+    log_dict = dict(sorted(log_dict.items(),reverse=sort_order))
     with open(log, 'w') as f:
         for date,entry in log_dict.items():
             f.write(date+'\n')
