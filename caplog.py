@@ -33,12 +33,6 @@ except Exception as e:
     pass
 
 
-print(DATE_FORMAT)
-print(TIMESTAMP_FORMAT)
-
-
-
-
 
 def validate_log(log):
     """
