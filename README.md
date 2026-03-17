@@ -8,14 +8,17 @@ Requires Python3 and libraries - os, sys, yaml, dateutil, datetime
 
 # Config
 
-Config file 'config.yml' must be provided in the same directory as the log file.
-
-If a config file is not provided by the user, default values for the formats will be used.
+config.yml is used to specify the following settings.
 
 ```shell
 DATE_FORMAT: "%Y-%m-%d"
 TIMESTAMP_FORMAT: "%Y-%m-%dT%H:%M:%S"
 ```
+For file-specific configuration,  the config file is placed in the same directory as the log file. 
+For system-wide configuration, the config file is placed in the same directory as the python script.
+
+In the absence of config.yml in any level, the default values are used.
+
 # Usage
 
 Pass the path of the log file as the argument in the command line.

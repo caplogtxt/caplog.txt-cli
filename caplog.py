@@ -8,6 +8,18 @@ import yaml
 DATE_FORMAT = "%Y-%m-%d"
 TIMESTAMP_FORMAT = "%Y-%m-%dT%H:%M:%S"
 
+## Load the system wide configuration 
+try:
+    with open('config.yml', "r") as ymlfile:
+        cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
+        if 'DATE_FORMAT' in cfg:
+            DATE_FORMAT = cfg['DATE_FORMAT']
+        if 'TIMESTAMP_FORMAT' in cfg:
+            TIMESTAMP_FORMAT=cfg['TIMESTAMP_FORMAT']
+except Exception as e:
+        pass
+
+## Load the log specific configuration
 try:
     basedir=os.path.dirname(sys.argv[1])
     config_file=os.path.join(basedir,'config.yml')
@@ -19,6 +31,10 @@ try:
             TIMESTAMP_FORMAT=cfg['TIMESTAMP_FORMAT']
 except Exception as e:
     pass
+
+
+print(DATE_FORMAT)
+print(TIMESTAMP_FORMAT)
 
 
 
