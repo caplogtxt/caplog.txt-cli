@@ -20,8 +20,8 @@ For system-wide configuration, the config file is placed in the same directory a
 
 In the absence of config.yml in any level, the default values are used.
 
-DATE_FORMAT: The format of the DATE field of the log entry
-TIMESTAMP_FORMAT: The format of the TIMESTAMP field of the log entry
+DATE_FORMAT: The format of the DATE field of the log entry.
+TIMESTAMP_FORMAT: The format of the TIMESTAMP field of the log entry.
 SORT_ORDER: can be ASCENDING or DESCENDING. Specifies the sort order of the log entries in a log file
 
 # Usage
