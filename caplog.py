@@ -5,14 +5,21 @@ import datetime
 from dateutil import parser
 import yaml
 
+DATE_FORMAT = "%Y-%m-%d"
+TIMESTAMP_FORMAT = "%Y-%m-%dT%H:%M:%S"
+
 try:
-    with open("config.yml", "r") as ymlfile:
+    basedir=os.path.dirname(sys.argv[1])
+    config_file=os.path.join(basedir,'config.yml')
+    with open(config_file, "r") as ymlfile:
         cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
-        DATE_FORMAT=cfg['DATE_FORMAT']
-        TIMESTAMP_FORMAT=cfg['TIMESTAMP_FORMAT']
+        if 'DATE_FORMAT' in cfg:
+            DATE_FORMAT = cfg['DATE_FORMAT']
+        if 'IMESTAMP_FORMAT' in cfg:
+            TIMESTAMP_FORMAT=cfg['TIMESTAMP_FORMAT']
 except Exception as e:
-    DATE_FORMAT = "%Y-%m-%d"
-    TIMESTAMP_FORMAT = "%Y-%m-%dT%H:%M:%S"
+    pass
+
 
 
 
@@ -131,7 +138,7 @@ if __name__ == '__main__':
     """ 
     specify the path to the log file as a command line argument
     """
-    if len(sys.argv) != 2: 
+    if len(sys.argv) < 2: 
         print("Invalid arguments. Please specify the path to the log file") 
         sys.exit()
     LOG_FILE=sys.argv[1]

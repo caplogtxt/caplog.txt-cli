@@ -8,14 +8,13 @@ Requires Python3 and libraries - os, sys, yaml, dateutil, datetime
 
 # Config
 
-Config file 'config.yml' must be provided in the same directory as the caplog.py python script. 
+Config file 'config.yml' must be provided in the same directory as the log file.
 
-This has two important settings - format for the DATETIME and TIMESTAMP field. Here is an example config file. DATETIME field can either be a date or datetime depending on the period of time for each log entry. 
+If a config file is not provided by the user, default values for the formats will be used.
 
 ```shell
-format:
-   datetime_format: "%Y-%m-%d"
-   timestamp_format: "%Y-%m-%dT%H:%M:%S"
+DATE_FORMAT: "%Y-%m-%d"
+TIMESTAMP_FORMAT: "%Y-%m-%dT%H:%M:%S"
 ```
 # Usage
 
@@ -25,7 +24,7 @@ Pass the path of the log file as the argument in the command line.
 python3 caplog.py /home/user/caplog.txt
 ```
 
-A new file file is created if it does not exist. If the given file already exists, the file is validated and parsed into a dict object. A new entry is received from the user interactively in the command line and is written into the log file. 
+A new log file is created if it does not already exist. If the log file already exists, it is validated for any syntax errors and loaded into memory. A new entry is received from the user interactively in the command line and is written into the log file. 
 
 ```
 Enter the entry date (Press enter to accept the default 2022-09-18) :
